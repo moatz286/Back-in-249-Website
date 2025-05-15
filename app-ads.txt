@@ -1,0 +1,2 @@
+# IAB Tech Lab compliant app-ads.txt for com.t2h2soft.back_in_249
+google.com, pub-2404850250749919, DIRECT, f08c47fec0942fa0
