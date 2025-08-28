@@ -296,11 +296,11 @@ function updateMetaTags(lang) {
     if (lang === 'ar') {
         document.title = "باك إن 249 - رحلة في ذاكرة السودان";
         document.querySelector('meta[name="description"]').setAttribute('content',
-            "باك إن 249 هو تطبيق مبتكر مصمم لأخذك في رحلة إلى الوراء عبر تاريخ السودان. شارك الصور، تواصل مع المسافرين عبر الزمن، وجرب الذكريات كما لم يحدث من قبل.");
+            "Back in 249 هو تطبيق مبتكر مصمم لأخذك في رحلة عبر الزمن. شارك الصور، تواصل مع اصدقائك المسافرين عبر الزمن، واختبر ذكريات السودان كما لم يحدث من قبل.");
     } else {
-        document.title = "Back In 249 - Journey Through Sudan's Memories";
+        document.title = "Back In 249 - Journey Through Memories in Sudan";
         document.querySelector('meta[name="description"]').setAttribute('content',
-            "Back in 249 is an innovative app designed to take you on a journey back in time through Sudan's history. Share pictures, connect with fellow time travelers, and experience memories like never before.");
+            "Back in 249 is an innovative app designed to take you on a journey back in time. Share pictures, connect with fellow time travelers, and experience memories of Sudan like never before.");
     }
 }
 // Function to toggle language
