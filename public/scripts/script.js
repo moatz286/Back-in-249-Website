@@ -250,8 +250,8 @@ const translations = {
     }
 };
 
-// Current language
-let currentLang = 'en';
+// Get current language from URL or localStorage
+let currentLang = localStorage.getItem('language') || 'en';
 
 // Theme toggle
 function toggleTheme() {
@@ -261,45 +261,96 @@ function toggleTheme() {
     localStorage.setItem('darkMode', isDark);
 }
 
-// Language toggle
-function toggleLanguage() {
-    currentLang = currentLang === 'en' ? 'ar' : 'en';
-    document.body.classList.toggle('rtl', currentLang === 'ar');
-    translatePage();
-    localStorage.setItem('language', currentLang);
-}
+// Function to apply translations
+function applyTranslations(lang) {
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
 
-// Translate the page
-function translatePage() {
-    const elements = document.querySelectorAll('[data-i18n]');
-    elements.forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (translations[currentLang][key]) {
-            el.textContent = translations[currentLang][key];
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                element.placeholder = translations[lang][key];
+            } else {
+                element.textContent = translations[lang][key];
+            }
         }
     });
+
+    // Update language toggle button text
+    const toggleBtn = document.querySelector('.lang-toggle');
+    if (toggleBtn) {
+        toggleBtn.textContent = lang === 'en' ? 'العربية' : 'English';
+    }
+
+    // Update meta tags for SEO
+    updateMetaTags(lang);
+
+    // Save language preference
+    localStorage.setItem('language', lang);
+    currentLang = lang;
 }
 
-// Initialize page
-function init() {
-    // Initialize loading screen first
-    initLoadingScreen();
+// Function to update meta tags for SEO
+function updateMetaTags(lang) {
+    if (lang === 'ar') {
+        document.title = "باك إن 249 - رحلة في ذاكرة السودان";
+        document.querySelector('meta[name="description"]').setAttribute('content',
+            "باك إن 249 هو تطبيق مبتكر مصمم لأخذك في رحلة إلى الوراء عبر تاريخ السودان. شارك الصور، تواصل مع المسافرين عبر الزمن، وجرب الذكريات كما لم يحدث من قبل.");
+    } else {
+        document.title = "Back In 249 - Journey Through Sudan's Memories";
+        document.querySelector('meta[name="description"]').setAttribute('content',
+            "Back in 249 is an innovative app designed to take you on a journey back in time through Sudan's history. Share pictures, connect with fellow time travelers, and experience memories like never before.");
+    }
+}
+// Function to toggle language
+function toggleLanguage() {
+    const newLang = currentLang === 'en' ? 'ar' : 'en';
+    applyTranslations(newLang);
 
-    // Check for saved theme preference
-    if (localStorage.getItem('darkMode') === 'true') {
-        document.body.classList.add('dark-mode');
+    // Update URL parameter for crawlers
+    const url = new URL(window.location);
+    url.searchParams.set('lang', newLang);
+    window.history.replaceState({}, '', url);
+}
+// Language toggle
+// function toggleLanguage() {
+//     currentLang = currentLang === 'en' ? 'ar' : 'en';
+//     document.body.classList.toggle('rtl', currentLang === 'ar');
+//     translatePage();
+//     localStorage.setItem('language', currentLang);
+// }
+
+// Translate the page
+// function translatePage() {
+//     const elements = document.querySelectorAll('[data-i18n]');
+//     elements.forEach(el => {
+//         const key = el.getAttribute('data-i18n');
+//         if (translations[currentLang][key]) {
+//             el.textContent = translations[currentLang][key];
+//         }
+//     });
+// }
+
+// Initialize page
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', function () {
+    // Check for language in URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const langParam = urlParams.get('lang');
+    if (langParam && (langParam === 'en' || langParam === 'ar')) {
+        currentLang = langParam;
     }
 
-    // Check for saved language preference
-    const savedLang = localStorage.getItem('language');
-    if (savedLang) {
-        currentLang = savedLang;
-        if (currentLang === 'ar') {
-            document.body.classList.add('rtl');
+    // Apply saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        const themeIcon = document.querySelector('.theme-toggle i');
+        if (themeIcon) {
+            themeIcon.className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
         }
     }
-    translatePage();
-
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -312,7 +363,44 @@ function init() {
             }
         });
     });
-}
+    // Apply translations
+    applyTranslations(currentLang);
+
+    // Simulate loading
+    initLoadingScreen();
+});
+// function init() {
+//     // Initialize loading screen first
+//     initLoadingScreen();
+
+//     // Check for saved theme preference
+//     if (localStorage.getItem('darkMode') === 'true') {
+//         document.body.classList.add('dark-mode');
+//     }
+
+//     // Check for saved language preference
+//     const savedLang = localStorage.getItem('language');
+//     if (savedLang) {
+//         currentLang = savedLang;
+//         if (currentLang === 'ar') {
+//             document.body.classList.add('rtl');
+//         }
+//     }
+//     translatePage();
+
+//     // Smooth scrolling for anchor links
+//     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+//         anchor.addEventListener('click', function (e) {
+//             e.preventDefault();
+//             const target = document.querySelector(this.getAttribute('href'));
+//             if (target) {
+//                 target.scrollIntoView({
+//                     behavior: 'smooth'
+//                 });
+//             }
+//         });
+//     });
+// }
 // Loading screen functionality
 function initLoadingScreen() {
     const loadingScreen = document.getElementById('loading-screen');
@@ -340,4 +428,4 @@ function initLoadingScreen() {
     }
 }
 // Initialize when page loads
-window.onload = init;
+// window.onload = init;
