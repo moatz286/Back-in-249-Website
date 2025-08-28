@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="safety_standards_page_title">Child Safety Standards</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style/loadingScreen.css">
+  <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+  <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <i class="fas fa-clock"></i>
+            </div>
+            <h1 class="loading-title">Back In 249</h1>
+            <p class="loading-text" data-i18n="loading_message">Loading your memories...</p>
+            <div class="loading-progress-container">
+                <div class="loading-progress-bar" id="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html#home">
+        <!-- <i class="fas fa-clock"></i> -->
+        <span data-i18n="app_name">Back In 249</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#home" data-i18n="nav_home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about" data-i18n="nav_about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact" data-i18n="nav_contact">Contact</a>
+          </li>
+        </ul>
+        <div class="d-flex align-items-center">
+          <div class="social-icons me-3">
+            <a href="https://facebook.com" target="_blank" class="social-icon" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://x.com/back_in_249" target="_blank" class="social-icon" aria-label="Twitter">
+              <i class="fab fa-x"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" class="social-icon" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+          <div class="lang-switcher">
+            <button class="btn btn-sm btn-outline-light me-2 lang-toggle" onclick="toggleLanguage()">
+              <span data-i18n="language">العربية</span>
+            </button>
+            <button class="btn btn-sm btn-outline-light theme-toggle" onclick="toggleTheme()">
+              <i class="fas fa-moon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Navbar -->
+  <!-- <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#" data-i18n="child_safety_standards">Child Safety Standards</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#content-restrictions" data-i18n="content">Content</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#privacy" data-i18n="privacy">Privacy</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#reporting" data-i18n="reporting">Reporting</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav> -->
+
+  <!-- Main Content -->
+  <div class="container my-5 ">
+    <div class="policy_container">
+
+      <h1 class="text-center mb-5" data-i18n="child_safety_standards">Child Safety Standards</h1>
+
+      <!-- Content Restrictions -->
+      <div class="card" id="content-restrictions">
+        <div class="card-header">
+          <h2 data-i18n="content_restrictions">1. Content Restrictions</h2>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li data-i18n="info_restriction1">Do not create, upload, or distribute content that exploits, endangers, or
+              targets children.</li>
+            <li data-i18n="info_restriction2">Ensure all content is age-appropriate and suitable for the intended
+              audience.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Privacy and Data Protection -->
+
+      <div class="card" id="privacy">
+        <div class="card-header">
+          <h2 data-i18n="privacy_data_protection">2. Privacy and Data Protection</h2>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li data-i18n="privacy_data_protection1">Minimize the collection of personal data from children.</li>
+            <li data-i18n="privacy_data_protection2">Implement robust security measures to protect children’s data.</li>
+            <li data-i18n="privacy_data_protection3">Provide a clear and concise privacy policy.</li>
+            <li data-i18n="privacy_data_protection4">Obtain verifiable parental consent where required by law.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Reporting Mechanisms -->
+      <div class="card" id="reporting">
+        <div class="card-header">
+          <h2 data-i18n="reporting_mechanisms">3. Reporting Mechanisms</h2>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li data-i18n="reporting_mechanisms1">Provide easy-to-use tools for reporting violations.</li>
+            <li data-i18n="reporting_mechanisms2">Implement proactive moderation systems to detect harmful content.</li>
+            <li data-i18n="reporting_mechanisms3">Ensure timely responses to reports of child safety violations.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Additional Sections -->
+      <div class="card">
+        <div class="card-header">
+          <h2 data-i18n="advertising_monetization">4. Advertising and Monetization</h2>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li data-i18n="advertising_monetization1">Avoid targeting children with inappropriate or manipulative
+              advertising.</li>
+            <li data-i18n="advertising_monetization2">Do not monetize content that exploits or endangers children.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2 data-i18n="compliance_with_laws">5. Compliance with Laws</h2>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li data-i18n="compliance_with_laws1">Adhere to all relevant laws and regulations regarding child
+              protection.</li>
+            <li data-i18n="compliance_with_laws2">Comply with COPPA, GDPR-K, and other local laws.</li>
+            <li data-i18n="compliance_with_laws3">Regularly review and update child safety policies.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="py-4">
+    <div class="container text-center">
+      <div class="footer-social mb-3">
+        <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://x.com/back_in_249" target="_blank" aria-label="X">
+          <i class="fab fa-x"></i>
+        </a>
+        <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+      <p>© 2025 Back In 249. <span data-i18n="rights_reserved">All rights reserved.</span></p>
+      <p data-i18n="footer_message">Relive your past, cherish your present, and look forward to your future.</p>
+    </div>
+  </footer>
+
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+  <script src="scripts/script.js"></script>
+
+</html>

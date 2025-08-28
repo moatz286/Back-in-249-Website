@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Back In 249 - Loading</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #54CCA0 0%, #398378 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            color: white;
+        }
+
+        .loading-container {
+            text-align: center;
+            z-index: 10;
+        }
+
+        .logo {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .logo-icon {
+            font-size: 4rem;
+            animation: pulse 2s infinite;
+        }
+
+        .app-name {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .progress-container {
+            width: 250px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            margin: 0 auto 20px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: white;
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+
+        .loading-text {
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+        }
+
+        .loading-dots {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+
+        .dot:nth-child(1) {
+            animation: dotPulse 1.5s infinite;
+        }
+
+        .dot:nth-child(2) {
+            animation: dotPulse 1.5s infinite 0.2s;
+        }
+
+        .dot:nth-child(3) {
+            animation: dotPulse 1.5s infinite 0.4s;
+        }
+
+        .background-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            background: white;
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            top: -150px;
+            left: -150px;
+        }
+
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            bottom: -100px;
+            right: -100px;
+        }
+
+        .shape-3 {
+            width: 150px;
+            height: 150px;
+            top: 50%;
+            right: 20%;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes dotPulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.6;
+            }
+
+            50% {
+                transform: scale(1.5);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 0.6;
+            }
+        }
+
+        .copyright {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <div class="loading-container">
+        <div class="logo">
+            <i class="fas fa-clock logo-icon"></i>
+        </div>
+
+        <h1 class="app-name">Back In 249</h1>
+
+        <p class="tagline">Journey Through Sudan's Memories</p>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progress"></div>
+        </div>
+
+        <div class="loading-text">Loading your memories...</div>
+
+        <div class="loading-dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <div class="copyright">© 2025 Back In 249. All rights reserved.</div>
+
+<script src="scripts/script.js"></script>
+    <!-- Font Awesome for the clock icon -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
