@@ -43,6 +43,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style/loadingScreen.css">
     <link rel="stylesheet" href="style/style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+    
 </head>
 
 <body>
@@ -76,6 +84,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#about" data-i18n="nav_about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#screenshots" data-i18n="nav_screenshots">Screenshots</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contact" data-i18n="nav_contact">Contact</a>
@@ -119,8 +130,132 @@
                         class="btn btn-primary btn-lg mx-2 my-1">
                         <i class="fab fa-google-play"></i> <span data-i18n="download_btn">Download Now</span>
                     </a>
-                    <a href="#about" class="btn btn-outline-light btn-lg mx-2 my-1" data-i18n="learn_more">Learn
-                        More</a>
+                    <a href="#screenshots" class="btn btn-outline-light btn-lg mx-2 my-1" data-i18n="view_screenshots">View Screenshots</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section class="py-5" id="screenshots">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-i18n="screenshots_title">App Screenshots</h2>
+            
+            <!-- Home Page Screenshot -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6">
+                    <div class="screenshot-card">
+                        <img src="images/feed2.jpg" alt="Back In 249 Home Screen" class="img-fluid rounded shadow" data-i18n="alt_home_screen">
+                        <div class="screenshot-overlay">
+                            <a href="images/feed.jpg" class="screenshot-expand" data-fancybox="screenshots" data-caption="Home Screen">
+                                <i class="fas fa-expand"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- 718x1386 -->
+                </div>
+                <div class="col-md-6">
+                    <h3 data-i18n="home_screen_title">Home Screen</h3>
+                    <p data-i18n="home_screen_desc">The home screen displays a timeline of memories shared by you and your connections. Easily navigate through different time periods and explore memories from various locations across Sudan.</p>
+                    <ul class="feature-list">
+                        <li data-i18n="home_feature1">Timeline of memories</li>
+                        <li data-i18n="home_feature2">Filter by location and date</li>
+                        <li data-i18n="home_feature3">Interactive map view</li>
+                        <li data-i18n="home_feature4">Quick access to upload new memories</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Profile Page Screenshot -->
+            <div class="row align-items-center mb-5 flex-md-row-reverse">
+                <div class="col-md-6">
+                    <div class="screenshot-card">
+                        <img src="images/profile.jpg" alt="Back In 249 Profile Screen" class="img-fluid rounded shadow" data-i18n="alt_profile_screen">
+                        <div class="screenshot-overlay">
+                            <a href="images/profile.jpg" class="screenshot-expand" data-fancybox="screenshots" data-caption="Profile Screen">
+                                <i class="fas fa-expand"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h3 data-i18n="profile_screen_title">Profile Screen</h3>
+                    <p data-i18n="profile_screen_desc">Your personal profile showcases all your shared memories in an organized manner. Manage your account settings, view your connections, and track your memory-sharing activity.</p>
+                    <ul class="feature-list">
+                        <li data-i18n="profile_feature1">Personal memory collection</li>
+                        <li data-i18n="profile_feature2">Edit profile information</li>
+                        <li data-i18n="profile_feature3">Privacy settings control</li>
+                        <li data-i18n="profile_feature4">Connection management</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Search Page Screenshot -->
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="screenshot-card">
+                        <img src="images/search.jpg" alt="Back In 249 Search Screen" class="img-fluid rounded shadow" data-i18n="alt_search_screen">
+                        <div class="screenshot-overlay">
+                            <a href="images/search.jpg" class="screenshot-expand" data-fancybox="screenshots" data-caption="Search Screen">
+                                <i class="fas fa-expand"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h3 data-i18n="search_screen_title">Search Screen</h3>
+                    <p data-i18n="search_screen_desc">Discover new memories and connect with other users through our powerful search functionality. Find memories by location, date, people, or keywords.</p>
+                    <ul class="feature-list">
+                        <li data-i18n="search_feature1">Advanced filtering options</li>
+                        <li data-i18n="search_feature2">Location-based search</li>
+                        <li data-i18n="search_feature3">Trending memories</li>
+                        <li data-i18n="search_feature4">User discovery</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Additional Screenshots Carousel -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <h3 class="text-center mb-4" data-i18n="more_screenshots">More Screenshots</h3>
+                    <div id="screenshotsCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-3 col-6 mb-3">
+                                        <img src="images/land.jpg" class="d-block w-100 rounded shadow" alt="Memory Detail Screen" data-i18n="alt_memory_detail">
+                                    </div>
+                                    <div class="col-md-3 col-6 mb-3">
+                                        <img src="images/upload2.jpg" class="d-block w-100 rounded shadow" alt="Upload Screen" data-i18n="alt_upload_screen">
+                                    </div>
+                                    <div class="col-md-3 col-6 mb-3">
+                                        <img src="images/reaction.jpg" class="d-block w-100 rounded shadow" alt="Notifications Screen" data-i18n="alt_notifications">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-3 col-6 mb-3">
+                                        <img src="images/upload.jpg" class="d-block w-100 rounded shadow" alt="Map View Screen" data-i18n="alt_map_view">
+                                    </div>
+                                    <div class="col-md-3 col-6 mb-3">
+                                        <img src="images/settings.jpg" class="d-block w-100 rounded shadow" alt="Settings Screen" data-i18n="alt_settings">
+                                    </div>
+                                    <div class="col-md-3 col-6 mb-3">
+                                        <img src="images/profile2.jpg" class="d-block w-100 rounded shadow" alt="Connections Screen" data-i18n="alt_connections">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#screenshotsCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#screenshotsCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -267,6 +402,8 @@
         </div>
     </footer>
 
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="scripts/script.js"></script>
     <script type="application/ld+json">
 {
